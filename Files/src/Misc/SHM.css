@@ -1,0 +1,31 @@
+body {
+    background-color: #001BFF;
+    color: white;
+    background-image: url("spacejam.jpg"); 
+}
+a{
+    color:yellow;
+} 
+p {
+    font-family: 'Comic Sans MS' !important;
+}
+#title {
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 100px;
+    font-family: 'Comic Sans MS' !important;
+    font-size: 100px;
+}
+#date{
+    font-size:30px;
+    margin-top:50px;
+}
+#src{
+    margin-top:50px;
+    font-size:10px;
+}
+#politics {
+    margin-top:50px;
+    float: left; 
+    width: 400px;
+}

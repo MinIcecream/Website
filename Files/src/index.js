@@ -1,6 +1,7 @@
 window.onload = function () {
     var left = document.getElementById("left-handle");
     var right = document.getElementById("right-handle");
+    var timeToIncrement = 8000;
 
     if (left) {
         left.addEventListener("click", decrementDisplay);
@@ -8,7 +9,7 @@ window.onload = function () {
     if (right) {
         right.addEventListener("click", incrementDisplay);
     }
-
+    window.setInterval(incrementDisplay, timeToIncrement);
     var homeLink=document.getElementById("home-link");
     homeLink.addEventListener("click", setHomeActive);
 
@@ -21,13 +22,23 @@ window.onload = function () {
     var pic = document.getElementById("about-pic");
     var text = document.getElementById("about-description")
     var header = document.getElementsByClassName("header")[0];
-    window.addEventListener("scroll", function () {
-        let value = window.scrollY;
-        pic.style.top = value * .4 + "px";
-        text.style.marginTop = value * .4 + "px";
-        header.style.top = value * .4 + "px";
-    })
+    if (pic)
+    {
+        window.addEventListener("scroll", function () {
+            let value = window.scrollY;
+            pic.style.top = value * .4 + "px";
+            text.style.marginTop = value * .4 + "px";
+            header.style.top = value * .4 + "px";
+        })
+    } 
 
+
+    $("#email").hover(function () {
+        $(this).html("<a class='footer-link' id='email' href='mailto: z331317@gmail.com'><i class='fa-solid fa-envelope-open'></i></a>");
+    }, function () {
+        $(this).html("<a class='footer-link' id='email' href='mailto: z331317@gmail.com'><i class='fa-solid fa-envelope'></i></a>");
+    });
+     
 }
 const total = 4;
 
@@ -65,16 +76,16 @@ function incrementDisplay() {
 }
 
 function moveToStart() {
-    $(".banner-img").css({ "transition": "all 0.0s ease-in-out" });
+    $(".banner-link").css({ "transition": "all 0.0s ease-in-out" });
     $(":root").css("--progress", 3);
 }
 function updateCount(newProgress) {
-    $(".banner-img").css({ "transition": "all 0.3s ease-in-out" });
+    $(".banner-link").css({ "transition": "all 0.3s ease-in-out" });
     $(":root").css("--progress", newProgress);
 }
 
 function moveToEnd() {
-    $(".banner-img").css({ "transition": "all 0.0s ease-in-out" });
+    $(".banner-link").css({ "transition": "all 0.0s ease-in-out" });
     $(":root").css("--progress", 4);
 }
 function setHomeActive() {
@@ -89,3 +100,5 @@ function setAboutActive() {
     $(".nav-link").removeClass("selected");
     $(".about-link").addClass("selected");
 }
+
+  
